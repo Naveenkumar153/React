@@ -23,7 +23,6 @@ export default function Gameboard({ onSelectSquare, turns }) {
 //       newGameBoard[rowIdx][colIdx] = activeSymbol;
 //       return newGameBoard
 //     });
-
 //     onSelectSquare();
     return (
     <ol id="game-board">
