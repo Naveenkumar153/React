@@ -10,7 +10,6 @@ export default function Product({
 }) {
 
   const { addItemToCart, totalItems, totalPrice } = useContext(CartContext);
-  console.log('totalItems', totalItems, 'totalPrice', totalPrice);
   return (
     <article className="product">
       <img src={image} alt={title} />
