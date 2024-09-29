@@ -25,3 +25,9 @@
 .counter button{
   margin: 1rem ;
 }
+
+.disabled{
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
