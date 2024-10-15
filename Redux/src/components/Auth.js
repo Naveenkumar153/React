@@ -1,6 +1,23 @@
 import classes from './Auth.module.css';
-
+import { useDispatch } from 'react-redux';
+import { authActions } from '../store/Auth';
 const Auth = () => {
+  const dispatch = useDispatch();
+  const loginHandler = (event) => {
+    event.preventDefault();
+    const email = event.nativeEvent.target.parentElement[0].value;
+    const password = event.nativeEvent.target.parentElement[1].value;
+    console.log({ email, password });
+    if(email.trim().length === 0 || password.trim().length === 0) {
+      alert('Form not valid');
+      return;
+    };
+
+    if(email && password) {
+      dispatch(authActions.login());
+    };
+  };
+
   return (
     <main className={classes.auth}>
       <section>
@@ -13,7 +30,7 @@ const Auth = () => {
             <label htmlFor='password'>Password</label>
             <input type='password' id='password' />
           </div>
-          <button>Login</button>
+          <button onClick={loginHandler}>Login</button>
         </form>
       </section>
     </main>

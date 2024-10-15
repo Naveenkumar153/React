@@ -1,24 +1,22 @@
 import { useDispatch, useSelector } from 'react-redux';
 import classes from './Counter.module.css';
+import { counterActions } from '../store/Counter';
 
 const Counter = () => {
 
   const dispatch = useDispatch();
-  const counter = useSelector(state => state.counter);
-  const show = useSelector(state => state.showCounter);
-  const toggleCounterHandler = () => {
-    dispatch({ type: 'TOGGLE_COUNTER' });
-  };
+  const counter = useSelector(state => state.counter.counter);
+  const show = useSelector(state => state.counter.showCounter);
 
   return (
     <main className={classes.counter}>
       <h1>Redux Counter</h1>
      { show &&  <div className={classes.value}>{ counter }</div>}
       <div>
-        <button className={show ? "" : classes.disabled} onClick={ () => dispatch({ type: 'INCREMENT', payload: 10 })}>Increment</button>
-        <button className={show ? "" : classes.disabled} onClick={ () => dispatch({ type: 'DECREMENT', payload: 10  })}>Decrement</button>
+        <button className={show ? "" : classes.disabled} onClick={ () => dispatch(counterActions.increment(10))}>Increment</button>
+        <button className={show ? "" : classes.disabled} onClick={ () => dispatch(counterActions.decrement(10))}>Decrement</button>
       </div>
-      <button onClick={toggleCounterHandler}> { show ? 'Hide' : 'Show' } Toggle Counter</button>
+      <button onClick={() => dispatch(counterActions.toggleCounter())}> { show ? 'Hide' : 'Show' } Toggle Counter</button>
     </main>
   );
 };
