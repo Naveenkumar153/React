@@ -1,19 +1,22 @@
-import React from 'react';
-import styles from './RestaurantCard.module.css';
-
+import styles from './RestaurentCard.module.css';
+import { IMAGE_URL } from '../utils/constents';
+import { useState } from 'react';
 export default function RestaurantCard({ restaurant }) {
+  console.log('restaurant',restaurant)
   return (
     <div className={styles.card}>
-      <img
-        className={styles.image}
-        src={restaurant.imageUrl}
-        alt={restaurant.name}
-      />
+      <div className={styles.imgContainer}>
+        <img
+          className={styles.image}
+          src={IMAGE_URL + restaurant.cloudinaryImageId}
+          alt={restaurant.name}
+        />
+      </div>
       <div className={styles.details}>
         <h2 className={styles.name}>{restaurant.name}</h2>
-        <p className={styles.description}>{restaurant.description}</p>
+        <p className={styles.description}>{restaurant.cuisines.join(', ')}</p>
         <p className={styles.rating}>
-          Rating: {restaurant.rating}
+          Rating: {restaurant.avgRating}
         </p>
       </div>
     </div>
