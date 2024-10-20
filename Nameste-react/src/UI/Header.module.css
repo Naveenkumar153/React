@@ -1,0 +1,73 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #fff; /* white background */
+    border-bottom: 1px solid #ddd; /* light gray border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* subtle shadow */
+    font-family: 'Open Sans', sans-serif; /* font family similar to Swiggy's website */
+  }
+  
+  .header .container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header .logo {
+    margin-right: 1rem;
+  }
+  
+  .header .nav-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header .nav-items ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .header .nav-items li {
+    margin-right: 2rem;
+    font-size: 14px; /* medium font size */
+    font-weight: 600; /* medium font weight */
+    color: #333; /* dark gray text color */
+  }
+  
+  .header .nav-items li:hover {
+    color: #337ab7; /* blue hover color */
+  }
+  
+  .header .nav-items li.active {
+    color: #337ab7; /* blue active color */
+    border-bottom: 2px solid #337ab7; /* blue bottom border */
+  }
+  
+  /* media queries for responsiveness */
+  
+  @media only screen and (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: center;
+    }
+    .header .nav-items {
+      flex-direction: column;
+      align-items: center;
+    }
+    .header .nav-items li {
+      margin-bottom: 1rem;
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .header {
+      padding: 0.5rem;
+    }
+    .header .nav-items li {
+      font-size: 14px;
+    }
+  }
